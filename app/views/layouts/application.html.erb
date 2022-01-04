@@ -19,21 +19,24 @@
         </a>
         <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
           <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
-            <li>
-              <%= link_to "Blog", {:controller => "/articles", :action => :index}, {:class => "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"} %>
-            </li>
-            <% if user_signed_in? && current_user.admin %>
+            <% 
+              links = []
+              links << ["Blog", {:controller => "/articles", :action => :index}, :get]
+              if user_signed_in?
+                if current_user.admin
+                  links << ["Admin", admin_articles_path, :get]
+                end
+                links << ["Sign out", destroy_user_session_path, :delete]
+              else
+                links << ["Sign in", new_user_session_path, :post]
+              end
+
+            %>
+            <% links.each do |label, url, method| %>
               <li>
-                <%= link_to "Admin", admin_articles_path ,  :class => "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" %>
+                <%= button_to label, url, {method: method, class: "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"} %>
               </li>
             <% end %>
-            <li>
-              <% if user_signed_in? %>
-                <%= button_to "Sign out", destroy_user_session_path, :method => :delete, :class => "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" %>
-              <% else %>
-                <%= button_to 'Sign in', new_user_session_path, :class => "block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" %>
-              <% end %>
-            </li>
           </ul>
         </div>
       </div>
