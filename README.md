@@ -10,6 +10,8 @@ It's provide:
 * Tailwind
 * Guard for auto test the changes
 * Live Reload
+* A full featured articles models + controller for embeding a blog
+
 
 ## License
 
@@ -28,3 +30,10 @@ bin/rails test:all
 ```
 
 You can also run specific tests when the related files change via Guard.
+
+## Migration
+
+### Run the migration
+```
+bin/rails db:migrate
+```
