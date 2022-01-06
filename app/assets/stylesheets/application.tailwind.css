@@ -13,7 +13,7 @@
 
 @layer components {
   .btn-primary {
-    @apply w-full hover:bg-gray-400 font-semibold focus:bg-gray-400 opacity-100 text-white rounded-lg px-6 py-3 mt-6;
+    @apply cursor-pointer hover:bg-gray-400 font-semibold focus:bg-gray-400 opacity-100 text-white rounded-lg px-6 py-3 mt-6;
   }
 }
 
