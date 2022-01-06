@@ -1,0 +1,12 @@
+<% content_for :main do %>
+    <main class="flex flex-row h-screen">
+        <div class="w-1/2 hidden bg-cover md:block"  style="background-image: url('https://source.unsplash.com/phIFdC6lA4E/1024')">
+        </div>
+
+        <div class="bg-white w-full md:w-1/2 px-3 md:px-6 md:items-center justify-center flex md:flex-grow">
+            <%= yield %>
+        </div>
+    </main>
+<% end %>
+
+<%= render template: "layouts/application" %>

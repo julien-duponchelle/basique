@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+@layer base {
+  input[type="submit"]
+  {
+    @apply bg-gray-800 ; /* Normally it should be part of btn-primary but a bug prevent it to be override */
   }
 }
 
-*/
+
+@layer components {
+  .btn-primary {
+    @apply w-full hover:bg-gray-400 font-semibold focus:bg-gray-400 opacity-100 text-white rounded-lg px-6 py-3 mt-6;
+  }
+}
+

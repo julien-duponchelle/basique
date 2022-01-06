@@ -11,6 +11,7 @@ It's provide:
 * Guard for auto test the changes
 * Live Reload
 * A full featured articles models + controller for embeding a blog
+* Auth with Devise
 * Backoffice with Administrate
 
 
