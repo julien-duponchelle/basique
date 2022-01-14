@@ -11,8 +11,6 @@ gem "sprockets-rails"
 
 gem "pg"
 
-gem 'dotenv-rails'
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -71,6 +69,7 @@ group :development do
   # gem "spring"
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-minitest', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
