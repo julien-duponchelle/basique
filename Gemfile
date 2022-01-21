@@ -44,9 +44,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-# Use Sass to process CSS
-# gem "sassc-rails"
-
 # Job queue
 gem 'good_job'
 
@@ -80,4 +77,7 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
-gem "administrate"
+
+# This branch bundle the assets preventing conflict with tailwind at deploy
+# https://github.com/thoughtbot/administrate/issues/2091#issuecomment-1017343152
+gem "administrate", github: "n-studio/administrate", branch: "compile-assets"
