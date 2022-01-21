@@ -15,7 +15,7 @@ It's provide:
 * Backoffice with Administrate
 * PostgreSQL
 * Good Job for background jobs
-
+* Can be deployed on Dokku or Heroku
 
 ## License
 
